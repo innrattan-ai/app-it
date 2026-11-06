@@ -29,8 +29,8 @@ const STORAGE_KEYS = {
 };
 
 // Default fallback Supabase credentials (from Redeploy Auth)
-const DEFAULT_SUPABASE_URL = 'https://ufcutuputdpnepuhcwaq.supabase.co';
-const DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmY3V0dXB1dGRwbmVwdWhjd2FxIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc5MzI0MjI1MywiZXhwIjoyMTA4ODE4MjUzfQ.skkTlQ0enTcK-DHMQVIsE0UpG7e6rubi9qGifGorZiM';
+const DEFAULT_SUPABASE_URL = 'https://pzjwayajpfjlxflrhbfs.supabase.co';
+const DEFAULT_SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB6andheWFqcGZqbHhmbHJoYmZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMzNDA4NTcsImV4cCI6MjEwODkxNjg1N30.LJIhIdOKsolfXQbP1aZSN05lw2XcKicU1Gv6gXZD6yM';
 
 // Universal Anti-Wrap Badge Formatters (Guarantee Clean Single-Line Badges)
 function formatCategoryBadge(category) {
