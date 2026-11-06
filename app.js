@@ -1051,51 +1051,7 @@ function clearImagePreview(previewId, containerId) {
   if (urlInput) urlInput.value = '';
 }
 
-async function handleCreateMasterItemSubmit(e) {
-  e.preventDefault();
 
-  const name = document.getElementById('create-item-name').value.trim();
-  const category = document.getElementById('create-item-category').value;
-  const remark = document.getElementById('create-item-remark').value.trim();
-
-  if (!name || !category) {
-    showToast('Nama Barang dan Kategori wajib diisi!', 'error');
-    return;
-  }
-
-  const prefix = category === 'PC ITEMS' ? 'PC' : category === 'NETWORK ITEMS' ? 'NET' : category === 'LOCK SYSTEM' ? 'LCK' : 'CCTV';
-  const randomCode = `${prefix}-${Math.floor(100 + Math.random() * 900)}`;
-
-  const newItem = {
-    id: `item-${Date.now()}`,
-    item_code: randomCode,
-    item_name: name,
-    category: category,
-    remark: remark || null,
-    photo_url: pendingPhotoDataUrl || null,
-    is_active: true,
-    created_at: new Date().toISOString(),
-    created_by: currentUser ? currentUser.email : 'admin@hotel.com',
-    updated_at: new Date().toISOString()
-  };
-
-  if (isLiveSupabase && supabaseClient) {
-    const { error } = await supabaseClient.from('master_items').insert(newItem);
-    if (error) {
-      console.warn('Supabase insert master item error:', error);
-    }
-  }
-
-  state.masterItems.unshift(newItem);
-  logActivity(name, category, 'Added', 'INVENTORY');
-  persistState();
-
-  document.getElementById('form-create-master-item').reset();
-  clearImagePreview('create-item-preview', 'create-item-preview-container');
-
-  showToast(`Master Item "${name}" berhasil dibuat!`, 'success');
-  navigateTo('inventory');
-}
 
 async function confirmDeleteMasterItem(itemId, itemName) {
   if (!confirm(`Hapus master barang "${itemName}"? Seluruh transaksi terkait akan ikut dihapus.`)) {
